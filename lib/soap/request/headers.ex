@@ -28,6 +28,6 @@ defmodule Soap.Request.Headers do
 
   @spec base_headers(String.t()) :: list()
   defp base_headers(soap_action) do
-    [{"SOAPAction", soap_action}, {"Content-Type", "text/xml;charset=utf-8"}]
+    [{"SOAPAction", soap_action}, {"Content-Type", "text/xml"}]
   end
 end
