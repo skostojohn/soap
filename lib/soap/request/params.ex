@@ -308,7 +308,11 @@ defmodule Soap.Request.Params do
   defp prepare_action_attribute(_action_attribute_namespace, nil), do: %{}
 
   defp prepare_action_attribute(action_attribute_namespace, action_attribute_value) do
-    %{"xmlns:#{action_attribute_namespace}" => action_attribute_value}
+    if action_attribute_namespace == "" do
+      %{"xmlns" => action_attribute_value}
+    else
+      %{"xmlns:#{action_attribute_namespace}" => action_attribute_value}
+    end
   end
 
   defp soap_version(wsdl) do
